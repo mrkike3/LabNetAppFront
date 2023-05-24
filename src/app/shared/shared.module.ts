@@ -13,6 +13,8 @@ import {MatDialogModule,MatDialogRef,MAT_DIALOG_DATA} from '@angular/material/di
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
+
+
 const modulosMaterial = [
   MatButtonModule,
   MatSidenavModule,
@@ -24,7 +26,8 @@ const modulosMaterial = [
   MatTableModule,
   MatPaginatorModule,
   MatDialogModule,
-  MatSnackBarModule,
+  MatSnackBarModule
+
   
 ]
 
