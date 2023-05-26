@@ -20,7 +20,7 @@ export class UserService {
     }
 
     addUser(user:User): Observable<User>{
-        return this.http.post<User>(this.url, user);
+        return this.http.post<User>(this.url+ '/Insert', user);
     }
 
     updateUser(token: Token, password:string){

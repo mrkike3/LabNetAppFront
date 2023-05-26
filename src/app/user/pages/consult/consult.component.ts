@@ -9,12 +9,6 @@ import { ResponseDto } from 'src/app/models/response';
 
 
 
-
-
-
-
-
-
 @Component({
   selector: 'app-consult',
   templateUrl: './consult.component.html',
@@ -59,6 +53,22 @@ export class ConsultComponent implements OnInit {
       },
     });
   }
+
+  // dialogNewStudent() {
+  //   this.dialog
+  //     .open(Dialog, {
+  //       disableClose: true,
+  //       width: '30%',
+  //     })
+  //     .afterClosed()
+  //     .subscribe((result) => {
+  //       console.warn(result);
+  //       if (result == 'created') {
+  //         this.showAllUsers();
+  //       }
+  //     });
+  // }
+
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
