@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ResponseDto } from 'src/app/models/response';
+import { Role } from 'src/app/models/Role';
 
 
 import{User} from 'src/app/models/user'
+import { RoleService } from 'src/app/service/role.service';
 import { UserService } from 'src/app/service/user.service';
 
 @Component({
@@ -14,17 +17,19 @@ import { UserService } from 'src/app/service/user.service';
 })
 export class AddComponent implements OnInit {
 
-
-  ngOnInit(): void {
-  }
-
-
   formUser: FormGroup;
-
+  listaRoles: Role[] = [];
+  
+  ngOnInit(): void {
+    this.getRoles();
+   
+ 
+  }
   constructor(
     private formB: FormBuilder,
     private _snackBar: MatSnackBar,
-    private _userService: UserService
+    private _userService: UserService,
+    private _roleService: RoleService
   ) { 
 
     this.formUser = this.formB.group({
@@ -37,6 +42,7 @@ export class AddComponent implements OnInit {
   }
 
 
+  
   addUser(): void {
     if (this.formUser.valid) {
       const newUser: User = {
@@ -64,6 +70,22 @@ export class AddComponent implements OnInit {
 
     }
   }
+
+  getRoles() {
+    this._roleService.getRole().subscribe({
+      next: (response: ResponseDto) => {
+        if (response.isSuccess) {
+          this.listaRoles = response.result as Role[]; 
+          console.log(this.listaRoles);
+        
+        } else {
+         
+        }
+      },
+      error: (error) => {
+       
+      },
+    });
 }
 
-
+}

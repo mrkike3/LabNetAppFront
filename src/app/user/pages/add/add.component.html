@@ -32,15 +32,15 @@
           </div>
           
           
-          <div class="form-field">
+          <div class="combo-container">
             <mat-form-field appearance="fill">
-              <mat-label>Rol</mat-label>
-              <input matInput formControlName="idRole">
-              <mat-error *ngIf="formUser.get('idRole')?.invalid && formUser.get('idRole')?.touched">
-                El Rol <strong>es requerido</strong>
+              <mat-label>Rol:</mat-label>
+              <mat-select formControlName="idRole" required>
+                <mat-option *ngFor="let role of listaRoles" [value]="role.id">{{ role.descripcion }}</mat-option>
+              </mat-select>
+              <mat-error *ngIf="formUser.get('idRole')?.hasError('required') && formUser.get('idRole')?.touched">
+                El rol <strong>es requerido</strong>
               </mat-error>
-           
-             
             </mat-form-field>
           </div>
             
