@@ -19,14 +19,14 @@
           <div class="form-field">
             <mat-form-field appearance="fill">
               <mat-label>Password</mat-label>
-              <input matInput formControlName="password">
+              <input matInput formControlName="password" type="password">
               <mat-error *ngIf="formUser.get('password')?.hasError('required') && formUser.get('password')?.touched">
                 El password <strong>es requerido</strong>
               </mat-error>
 
               <mat-error *ngIf="formUser.get('password')?.hasError('pattern') && formUser.get('password')?.touched">
                 El Password debe tener al menos 8 caracteres una mayuscula, una minuscula y un caracter especial
-            
+          
               </mat-error>
             </mat-form-field>
           </div>
@@ -46,6 +46,7 @@
             
            
         <button  type="submit" class="Guardar" mat-button color="primary">Guardar</button>
+        <button class="Volver" [routerLink]="['../consult']" mat-button color="accent" type="button">Volver</button>
         <!-- <button class="Volver" routerLink="listEmpleados" mat-button color="accent">Volver</button> -->
     </form>
 
